@@ -6,13 +6,13 @@ describe Cell, "#is?" do
     expect(Cell.new().is?).to eql("DEAD")
   end
   it "should return a alive cell if state is mentioned as Alive" do
-    expect(Cell.new("ALIVE").is?).to eql("ALIVE")
+    expect(Cell.new("ALIVE",1,2).is?).to eql("ALIVE")
   end
   it "should not give a dead cell if state mentioned is Alive" do
-    expect(Cell.new("ALIVE").is?).not_to eql("DEAD")
+    expect(Cell.new("ALIVE",1,2).is?).not_to eql("DEAD")
   end
   it "should check that if cell is alive then location must be provided" do
-
+    expect{ Cell.new("ALIVE").is? }.to raise_error(RuntimeError,"If state is alive then location must be provided")
   end
 end
 
@@ -28,6 +28,6 @@ end
 
 describe Cell, "#neighbours" do
   it "should give no neighbours if location of cell is nil" do
-    expect(Cell.new("ALIVE"))
+    expect(Cell.new("ALIVE",1,2))
   end
 end

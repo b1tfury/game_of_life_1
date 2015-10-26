@@ -7,7 +7,11 @@ class Cell
     @locationY = locationY
   end
   def is?
-    @state
+    if @state == ALIVE && (@locationX == nil || @locationY == nil)
+      raise "If state is alive then location must be provided"
+    else
+      @state
+    end
   end
   def location
     if @locationX == nil && @lcoationY == nil
