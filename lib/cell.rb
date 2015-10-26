@@ -1,7 +1,11 @@
 class Cell
-  DEAD = FALSE
-  ALIVE = TRUE
+  DEAD = "DEAD"
+  ALIVE = "ALIVE"
   def initialize(state =DEAD )
     @state = state
   end
+  def is?
+    @state
+  end
+
 end
