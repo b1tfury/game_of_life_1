@@ -1,7 +1,7 @@
 class Generation
   def initialize(curr_locations= nil)
     @curr_locations = curr_locations
-    @next_gen_locations = nil
+    @next_gen_locations = []
   end
 
   def curr_locations
@@ -12,7 +12,21 @@ class Generation
     if @curr_locations == nil
       nil
     else
-      [[1,2]]
+      @curr_locations.each do |loc |
+        cell = Cell.new("ALIVE",loc[0],loc[1])
+        neighbours = cell.neighbours
+        count = 0
+        neighbours.each do |tmp|
+          if @curr_locations.include? tmp
+            count += 1
+          end
+        end
+        if count == 2 || count == 3
+          @next_gen_locations << loc
+        end
+      end
+
+      @next_gen_locations
     end
   end
 
