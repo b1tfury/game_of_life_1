@@ -11,4 +11,17 @@ describe Generation,"#curr_generation" do
   it "should not return location of cells other then live cells " do
     expect(Generation.new(live_cells).curr_locations).not_to match_array([[1,2],[2,2],[1,1]])
   end
+
+end
+
+describe Generation,"#next_gen" do
+  live_cells = [[1,2],[2,3],[1,1]]
+  it "should return nil if current generation is nil" do
+    gen = Generation.new
+    expect(gen.next_gen).to eq(nil)
+  end
+  it "should return next generation cells locations if curr generation cells are not nil" do
+    gen = Generation.new(live_cells)
+    expect(gen.next_gen).to match_array()
+  end
 end
