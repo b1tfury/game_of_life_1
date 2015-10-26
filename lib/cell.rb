@@ -23,6 +23,9 @@ class Cell
   end
 
   def neighbours
+    if @locationX==nil || @locationY == nil
+      raise "location provided is nil"
+    else
     range  = Array.[](-1,0,1)
     range.each do |i|
       range.each do |j|
@@ -32,6 +35,7 @@ class Cell
       end
     end
     @neighbours
+    end
   end
 
 end

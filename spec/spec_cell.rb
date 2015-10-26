@@ -28,6 +28,9 @@ end
 
 describe Cell, "#neighbours" do
   it "should give no neighbours if location of cell is nil" do
-    expect(Cell.new("ALIVE",1,2).neighbours.sort).to eql([[0,1],[1,1],[2,1],[2,2],[2,3],[1,3],[0,3],[0,2]].sort)
+    expect{ Cell.new("ALIVE").neighbours }.to raise_error(RuntimeError,"location provided is nil")
+  end
+  it "should give 8 neighbours of a cell" do
+    expect(Cell.new("ALIVE",1,2).neighbours).to match_array([[0,1],[1,1],[2,1],[2,2],[2,3],[1,3],[0,3],[0,2]])
   end
 end
