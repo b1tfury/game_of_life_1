@@ -5,6 +5,7 @@ class Cell
     @state = state
     @locationX = locationX
     @locationY = locationY
+    @neighbours = []
   end
   def is?
     if @state == ALIVE && (@locationX == nil || @locationY == nil)
@@ -20,4 +21,17 @@ class Cell
       return @locationX, @locationY
     end
   end
+
+  def neighbours
+    range  = Array.[](-1,0,1)
+    range.each do |i|
+      range.each do |j|
+        if not (j == i && i ==0)
+           @neighbours << [@locationX+i,@locationY+j]
+        end
+      end
+    end
+    @neighbours
+  end
+
 end
