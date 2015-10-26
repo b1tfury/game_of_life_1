@@ -22,6 +22,6 @@ describe Generation,"#next_gen" do
   end
   it "should return next generation cells locations if curr generation cells are not nil" do
     gen = Generation.new(live_cells)
-    expect(gen.next_gen).to match_array()
+    expect(gen.next_gen).to match_array([[1,2]])
   end
 end
