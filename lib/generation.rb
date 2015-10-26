@@ -27,13 +27,14 @@ class Generation
           @next_gen_locations << loc
         end
       end
-      @neighbours = @neighbours.flatten.uniq
+      @neighbours = @neighbours.flatten(1).uniq
 
       @neighbours.each do |loc|
         cell = Cell.new("ALIVE",loc[0],loc[1])
         @neighbours << cell.neighbours
       end
-      @neighbours = @neighbours.flatten.uniq
+
+      @neighbours = @neighbours.flatten(1).uniq
 
       @neighbours.each do |loc|
         if !@curr_locations.include? loc
