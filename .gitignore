@@ -12,3 +12,4 @@ CODE_OF_CONDUCT.md
 game_of_life.gemspec
 LICENSE.txt
 .idea
+.DS_Store
