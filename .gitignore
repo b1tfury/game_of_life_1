@@ -7,3 +7,8 @@
 /pkg/
 /spec/reports/
 /tmp/
+CODE_OF_CONDUCT.md
+.travis.yml
+game_of_life.gemspec
+LICENSE.txt
+.idea

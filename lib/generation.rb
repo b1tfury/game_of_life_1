@@ -51,7 +51,7 @@ class Generation
           @next_gen_locations << loc
         end
       end
-      end
+      en
     @next_gen_locations
   end
 
